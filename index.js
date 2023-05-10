@@ -2,6 +2,7 @@
 const express = require('express');
 const connectDB = require('./config/db');
 const path = require('path');
+const http = require('http');
 
 //connect to database
 connectDB();
@@ -22,3 +23,6 @@ myApp.use('/api/tags', require('./routes/api/tags'));
 // //assigning the port
 // const PORT = process.env.PORT || 8080;
 // myApp.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+const server = http.createServer(app);
+const PORT = process.env.PORT || 8080;
+server.listen(PORT, () => console.log(`Server started on port ${PORT}`));
