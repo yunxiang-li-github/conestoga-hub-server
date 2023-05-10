@@ -23,6 +23,6 @@ myApp.use('/api/tags', require('./routes/api/tags'));
 // //assigning the port
 // const PORT = process.env.PORT || 8080;
 // myApp.listen(PORT, () => console.log(`Server started on port ${PORT}`));
-const server = http.createServer(app);
+const server = http.createServer(myApp);
 const PORT = process.env.PORT || 8080;
 server.listen(PORT, () => console.log(`Server started on port ${PORT}`));
