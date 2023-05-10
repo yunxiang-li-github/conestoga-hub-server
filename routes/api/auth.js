@@ -3,7 +3,8 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const auth = require('../../middleware/auth');
 const jwt = require('jsonwebtoken');
-const config = require('config');
+// const config = require('config');
+require('dotenv').config();
 const { check, validationResult } = require('express-validator');
 const emailSend = require('../../middleware/emailValidate/emailSender');
 const codeValidating = require('../../middleware/emailValidate/codeValidating');
@@ -120,7 +121,8 @@ router.post(
 
       jwt.sign(
         payload,
-        config.get('jwtSecret'),
+        // config.get('jwtSecret'),
+        process.env.JWT_SECRET,
         { expiresIn: 360000 },
         (err, token) => {
           if (err) throw err;

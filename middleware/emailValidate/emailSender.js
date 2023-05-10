@@ -1,9 +1,13 @@
 
 const nodemailer = require('nodemailer');
 const ValidationCode = require('./../../models/ValidationCode');
-const config = require('config');
-const emailSenderAddress = config.get('emailSenderAddress');
-const emailSenderPassword = config.get('emailSenderPassword');
+// const config = require('config');
+// const emailSenderAddress = config.get('emailSenderAddress');
+// const emailSenderPassword = config.get('emailSenderPassword');
+require('dotenv').config();
+const emailSenderAddress = process.env.EMAIL_SENDER_ADDRESS;
+const emailSenderPassword = process.env.EMAIL_SENDER_PASSWORD;
+
 
 function html_Template(userName, validateCode) {
     return `<html>
