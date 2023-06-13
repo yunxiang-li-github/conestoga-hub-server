@@ -3,6 +3,7 @@ const express = require('express');
 const connectDB = require('./config/db');
 const path = require('path');
 const http = require('http');
+import cors from "cors";
 
 //connect to database
 connectDB();
@@ -12,6 +13,7 @@ var myApp = express();
 
 //Set up the body parser
 myApp.use(express.json({ extended: false }));
+myApp.use(cors());
 
 myApp.use('/api/users', require('./routes/api/users'));
 myApp.use('/api/auth', require('./routes/api/auth'));
